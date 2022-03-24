@@ -25,6 +25,10 @@ public class GameEnding : MonoBehaviour
 
     public void CaughtPlayer()
     {
+        if(m_IsPlayerCaught == false)
+        {
+            SoundEffectSpawner.MakeSound(SoundEffectSpawner.AudioName.CaughtByGhost, player.transform.position);
+        }
         m_IsPlayerCaught = true;
     }
 

@@ -1154,6 +1154,7 @@ GameObject:
   - component: {fileID: 8045325773822366711}
   - component: {fileID: 6511050248930489136}
   - component: {fileID: 1650231382613268981}
+  - component: {fileID: 4846821689724961622}
   m_Layer: 0
   m_Name: JohnLemon
   m_TagString: Untagged
@@ -1239,6 +1240,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 5
+--- !u!81 &4846821689724961622
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6830155732661867516}
+  m_Enabled: 1
 --- !u!1 &6830155732661867518
 GameObject:
   m_ObjectHideFlags: 0
