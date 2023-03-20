@@ -23,11 +23,10 @@ public class SoundEffectSpawner : MonoBehaviour
     public void MakeSoundEffect(AudioClip clip, Vector3 location, float volume, float pitch)
     {
         var go = Instantiate(audioSourcePrefab, location, Quaternion.identity);
-        var audioSource = go.GetComponent<AudioSource>();
-        audioSource.clip = clip;
-        audioSource.volume = volume;
-        audioSource.pitch = pitch;
-        audioSource.Play();
+
+        //Code Here: Get the audio Source from this gameObject.
+        //           Set the clip, volume, and pitch, then play the clip
+
 
         Destroy(go, clip.length * 1.1f);
     }
@@ -39,20 +38,7 @@ public class SoundEffectSpawner : MonoBehaviour
 
         AudioClip clip = null;
 
-        switch(soundName)
-        {
-            case AudioName.Footstep:
-                int index = Random.Range(0, Footsteps.Length);
-                clip = Footsteps[index];
-                pitch = Random.Range(0.5f, 1.5f);
-                break;
-            case AudioName.CaughtByGhost:
-                volume = 1.5f;
-                clip = CaughtByGhost;
-                break;
-            default:
-                break;
-        }
+        //Code Here: Add code to determine what sound clip volume, and pitch to use basec on given soundName
 
         MakeSoundEffect(clip, location, volume, pitch);
     }

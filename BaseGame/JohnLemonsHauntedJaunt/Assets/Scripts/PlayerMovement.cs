@@ -46,6 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void MakeFootstepSound()
     {
-        SoundEffectSpawner.MakeSound(SoundEffectSpawner.AudioName.Footstep, transform.position);
+        //Code Here: Use our SoundEffectSpawner to make a sound effect at the player's position
     }
 }

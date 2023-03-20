@@ -27,7 +27,7 @@ public class GameEnding : MonoBehaviour
     {
         if(m_IsPlayerCaught == false)
         {
-            SoundEffectSpawner.MakeSound(SoundEffectSpawner.AudioName.CaughtByGhost, player.transform.position);
+            //Code Here: Play the game over sound
         }
         m_IsPlayerCaught = true;
     }
@@ -36,6 +36,11 @@ public class GameEnding : MonoBehaviour
     {
         if (m_IsPlayerAtExit)
         {
+            if(exitBackgroundImageCanvasGroup.alpha == 0)
+            {
+                //Code Here: Play the victory sound
+
+            }
             EndLevel(exitBackgroundImageCanvasGroup, false);
         }
         else if (m_IsPlayerCaught)

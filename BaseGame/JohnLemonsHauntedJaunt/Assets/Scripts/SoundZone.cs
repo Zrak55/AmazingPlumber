@@ -9,9 +9,6 @@ public class SoundZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == player)
-        {
-            SoundEffectSpawner.MakeSound(soundName, player.transform.position);
-        }
+        //Code Here: If the other collider matches the player, play the sound
     }
 }
