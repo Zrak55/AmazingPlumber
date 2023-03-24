@@ -7,6 +7,7 @@ public class SoundEffectSpawner : MonoBehaviour
     [SerializeField] GameObject audioSourcePrefab;
     [SerializeField] AudioClip[] Footsteps;
     [SerializeField] AudioClip CaughtByGhost;
+    [SerializeField] AudioClip WinGame;
 
     static SoundEffectSpawner soundEffects;
 
@@ -24,9 +25,12 @@ public class SoundEffectSpawner : MonoBehaviour
     {
         var go = Instantiate(audioSourcePrefab, location, Quaternion.identity);
 
-        //Code Here: Get the audio Source from this gameObject.
-        //           Set the clip, volume, and pitch, then play the clip
+        AudioSource source = go.GetComponent<AudioSource>();
+        source.clip = clip;
+        source.volume = volume;
+        source.pitch = pitch;
 
+        source.Play();
 
         Destroy(go, clip.length * 1.1f);
     }
@@ -38,7 +42,24 @@ public class SoundEffectSpawner : MonoBehaviour
 
         AudioClip clip = null;
 
-        //Code Here: Add code to determine what sound clip volume, and pitch to use basec on given soundName
+       switch(soundName)
+        {
+            case AudioName.CaughtByGhost:
+                clip = CaughtByGhost;
+                volume = 1f;
+                pitch = 1f;
+                break;
+            case AudioName.WinGame:
+                clip = WinGame;
+                volume = 0.75f;
+                pitch = Random.Range(0.9f, 1.1f);
+                break;
+            case AudioName.Footstep:
+                clip = Footsteps[Random.Range(0, Footsteps.Length)];
+                volume = 1f;
+                pitch = 1f;
+                break;
+        }
 
         MakeSoundEffect(clip, location, volume, pitch);
     }
@@ -46,6 +67,7 @@ public class SoundEffectSpawner : MonoBehaviour
     public enum AudioName
     {
         Footstep,
-        CaughtByGhost
+        CaughtByGhost,
+        WinGame
     }
 }

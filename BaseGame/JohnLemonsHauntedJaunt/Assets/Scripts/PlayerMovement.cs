@@ -44,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
         m_Rigidbody.MoveRotation(m_Rotation);
     }
 
-    public void MakeFootstepSound()
+    public void MakeFootstep()
     {
-        //Code Here: Use our SoundEffectSpawner to make a sound effect at the player's position
+        SoundEffectSpawner.MakeSound(SoundEffectSpawner.AudioName.Footstep, transform.position);
     }
 }
